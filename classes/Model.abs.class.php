@@ -5,7 +5,7 @@ abstract class Model {
 
   public function __construct() 
   {
-    $configJson = file_get_contents('config.json');
+    $configJson = file_get_contents('config.local.json');
     $this->config = json_decode($configJson, true);
 
     $userName = $this->config['username'];

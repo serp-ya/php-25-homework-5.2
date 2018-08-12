@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Войти на сайт</title>
+</head>
+<body>
+  <p>Введите данные для входа или регистрации:</p>
+
+  {% if emptyFields %}
+    <p style="color: red">Оба поля "Логин" и "Пароль" обязательны</p>
+  {% elseif userData.error %}
+    <p style="color: red">{{ userData.error }}</p>
+  {% endif %}
+
+  <form class="form" method="POST">
+
+    <input class="{{ inputCssClasses }}" type="text" name="login" placeholder="Логин">
+    <br />
+    <input class="{{ inputCssClasses }}" type="password" name="password" placeholder="Пароль">
+    <br />
+    <input class="{{ inputDefaultCssClasses }}" type="submit" name="action" value="Вход">
+    <br />
+    <input class="{{ inputDefaultCssClasses }}" type="submit" name="action" value="Регистрация">
+
+  </form>
+</body>
+
+<style>
+.form {
+  display: flex;
+  flex-flow: column;
+}
+
+.input {
+  max-width: 200px;
+}
+
+.input_type_danger {
+  border-color: red;
+}
+</style>
+</html>
